@@ -1,0 +1,4 @@
+first server instalation 
+npm init -y
+npm i express cors
+npm i nodemon
