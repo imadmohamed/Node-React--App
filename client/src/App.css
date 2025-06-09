@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    font-family: "Inter", sans-serif;
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 600px;
+    margin:20px auto;
+
+}
+
+h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px dashed #ccc;
+    color: darkslategray;
+}
+
+.btn{
+    color:white;
+    padding: 8px 10px;
+    border: none;
+    background-color: #ccc;
+}
+
+.green{
+    background-color: #4caf50;
+}
+
+.btn.green:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+
+}
+
+.red{
+    background-color:#e0410d;
+}
+
+.btn.red:hover{
+    background-color:white;
+    color: black;
+    border: 1px solid #e0410d;
+    border-radius: 5px;
+}
+
+.input-search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-search input{
+    width: 300px;
+    padding:8px;
+    border:1px solid #ccc;
+    outline: none;
+    
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    cursor:pointer;
+}
+
+.table th, 
+.table td{
+    border: 1px solid #ccc;
+    padding: 8px;
+    align-items: left;
+}
+
+.table th{
+    background-color:#f2f2f2
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.table tr:hover{
+    background-color:#ddd;
+}
