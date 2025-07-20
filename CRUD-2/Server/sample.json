@@ -1,0 +1,12 @@
+[
+    {"id":1, "name":"John Doe", "age":25, "city":"New York"},
+    {"id":2, "name":"Jane Smith", "age":30, "city":"Los Angeles"},
+    {"id":3, "name":"Sam Brown", "age":22, "city":"Chicago"},
+    {"id":4, "name":"Lisa White", "age":28, "city":"Houston"},
+    {"id":5, "name":"Tom Green", "age":35, "city":"Phoenix"},
+    {"id":6, "name":"Emily Johnson", "age":27, "city":"Philadelphia"},
+    {"id":7, "name":"Michael Lee", "age":32, "city":"San Antonio"},
+    {"id":8, "name":"Sarah Wilson", "age":29, "city":"San Diego"},
+    {"id":9, "name":"David Martinez", "age":31, "city":"Dallas"},
+    {"id":10, "name":"Laura Garcia", "age":24, "city":"San Jose"}
+]
