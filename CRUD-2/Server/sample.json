@@ -8,5 +8,7 @@
     {"id":7, "name":"Michael Lee", "age":32, "city":"San Antonio"},
     {"id":8, "name":"Sarah Wilson", "age":29, "city":"San Diego"},
     {"id":9, "name":"David Martinez", "age":31, "city":"Dallas"},
-    {"id":10, "name":"Laura Garcia", "age":24, "city":"San Jose"}
+    {"id":10, "name":"Laura Garcia", "age":24, "city":"San Jose"},
+    {"id":11, "name":"Garcia", "age":24, "city":"San Jose"}
+
 ]
