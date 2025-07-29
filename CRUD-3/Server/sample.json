@@ -1,0 +1,12 @@
+[
+    {"id": 1, "name": "Ram kumar", "age" : 25, "city": "Selam"},
+    {"id": 2, "name": "imad", "age" : 30, "city": "kalmunai"},
+    {"id": 3, "name": "kumar", "age" : 15, "city": "Selam"},
+    {"id": 4, "name": "Ram", "age" : 33, "city": "kalmunai"},
+    {"id": 5, "name": "raman", "age" :15, "city": "Selam"},
+    {"id": 6, "name": "roy", "age" : 20, "city": "kalmunai"},
+    {"id": 7, "name": "Ram ", "age" : 23, "city": "Selam"},
+    {"id": 8, "name": "mohamed", "age" :11, "city": "kalmunai"},
+    {"id": 9, "name": "fimihas", "age" :43, "city": "Selam"},
+    {"id": 10, "name": "ahamed", "age" :42, "city": "kalmunai"}  
+]
