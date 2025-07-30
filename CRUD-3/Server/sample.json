@@ -8,5 +8,6 @@
     {"id": 7, "name": "Ram ", "age" : 23, "city": "Selam"},
     {"id": 8, "name": "mohamed", "age" :11, "city": "kalmunai"},
     {"id": 9, "name": "fimihas", "age" :43, "city": "Selam"},
-    {"id": 10, "name": "ahamed", "age" :42, "city": "kalmunai"}  
+    {"id": 10, "name": "ahamed", "age" :42, "city": "kalmunai"},
+    {"id": 11, "name": " roy", "age" :22, "city": "colombo"}  
 ]
