@@ -1,6 +1,24 @@
 import './App.css'
+import axios from "axios";
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  const [users, setUsers] = useState([]);
+
+  const getAllUsers = async () => {
+    await axios.get("http://localhost:8000/users").then((res) => {
+
+      setUsers(res.data)
+      console.log(res.data)
+
+    })
+    
+  }
+
+  useEffect(() => {
+      getAllUsers();
+  },[])
 
   return (
     <>
