@@ -10,7 +10,6 @@ function App() {
     await axios.get("http://localhost:8000/users").then((res) => {
 
       setUsers(res.data)
-      console.log(res.data)
 
     })
     
@@ -40,7 +39,9 @@ function App() {
           </thead>
           
           <tbody>
-            <tr>
+           {users && users.map((user) => {
+            return (
+             <tr key={user.id}>
               <td>1</td>
               <td>Imad</td>
               <td>22</td>
@@ -52,32 +53,9 @@ function App() {
                 <button className='btn red'>Delete</button>
               </td>
             </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Imad</td>
-              <td>22</td>
-              <td>Kalminai</td>
-              <td>
-                <button className='btn green'>Edit</button>
-              </td>
-              <td>
-                <button className='btn red'>Delete</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>1</td>
-              <td>Imad</td>
-              <td>22</td>
-              <td>Kalminai</td>
-              <td>
-                <button className='btn green'>Edit</button>
-              </td>
-              <td>
-                <button className='btn red'>Delete</button>
-              </td>
-            </tr>
+           )
+          })}
+            
           </tbody>
 
         </table>
