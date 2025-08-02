@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react';
 function App() {
 
   const [users, setUsers] = useState([]);
+  const [filterUsers, setFilterUsers] = useState([])
 
   const getAllUsers = async () => {
     await axios.get("http://localhost:8000/users").then((res) => {
-
       setUsers(res.data)
-
+      setFilterUsers(res.data)
     })
     
   }
@@ -19,11 +19,19 @@ function App() {
       getAllUsers();
   },[])
 
+  //Search function
+const handleSearch = (e) => {
+  const searchtext = e.target.value.toLowerCase();
+  const filterUsers = users.filter((user) => user.name.toLowerCase().includes(searchtext)
+  || user.city.toLowerCase().includes(searchtext));
+  setFilterUsers(filterUsers)
+}
+
   return (
     <>
       <div className='container'><h3>CRUD APP front end react and Back end Node.js</h3>
         <div className='input-search'>
-          <input type='Search' placeholder='Search'/>
+          <input type='Search' placeholder='Search' onChange={handleSearch}/>
           <button className=' btn green '>Add Record</button>
         </div>
         <table className='table'>
@@ -39,7 +47,7 @@ function App() {
           </thead>
           
           <tbody>
-           {users && users.map((user, index) => {
+           {filterUsers && filterUsers.map((user, index) => {
             return (
              <tr key={user.id}>
               <td>{index + 1}</td>
