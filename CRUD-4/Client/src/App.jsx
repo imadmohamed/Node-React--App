@@ -27,6 +27,16 @@ const handleSearch = (e) => {
   setFilterUsers(filterUsers)
 }
 
+//Delete function
+const handleDelete = async (id) => {
+  await axios.delete(`http://localhost:8000/users/${id}`).then((res)=> {
+    setUsers(res.data);
+    setFilterUsers(res.data)
+  })
+}
+
+
+
   return (
     <>
       <div className='container'><h3>CRUD APP front end react and Back end Node.js</h3>
@@ -58,7 +68,7 @@ const handleSearch = (e) => {
                 <button className='btn green'>Edit</button>
               </td>
               <td>
-                <button className='btn red'>Delete</button>
+                <button className='btn red'onClick={() => handleDelete(user.id)}>Delete</button>
               </td>
             </tr>
            )
