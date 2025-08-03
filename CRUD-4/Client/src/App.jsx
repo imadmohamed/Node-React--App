@@ -6,6 +6,8 @@ function App() {
 
   const [users, setUsers] = useState([]);
   const [filterUsers, setFilterUsers] = useState([])
+  const [usModelOpen, setIsModelOpen] = useState(false)
+  const [userData, setUserData] = useState({name:"", age:"", city:""})
 
   const getAllUsers = async () => {
     await axios.get("http://localhost:8000/users").then((res) => {
@@ -35,6 +37,11 @@ const handleDelete = async (id) => {
   })
 }
 
+//Add user details
+const handleAddRecord = () => {
+  setUserData({name:"", age:"", city:""});
+  setIsModelOpen(true);
+}
 
 
   return (
@@ -42,7 +49,7 @@ const handleDelete = async (id) => {
       <div className='container'><h3>CRUD APP front end react and Back end Node.js</h3>
         <div className='input-search'>
           <input type='Search' placeholder='Search' onChange={handleSearch}/>
-          <button className=' btn green '>Add Record</button>
+          <button className=' btn green ' onClick={handleAddRecord}>Add Record</button>
         </div>
         <table className='table'>
           <thead>
@@ -75,8 +82,14 @@ const handleDelete = async (id) => {
           })}
             
           </tbody>
-
         </table>
+        {isModelOpen && (
+          <div className='model'>
+            <div>
+              <h2>User Record</h2>
+            </div>
+          </div>
+        )}
       </div>
     </>
   )
