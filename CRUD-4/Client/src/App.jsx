@@ -6,7 +6,7 @@ function App() {
 
   const [users, setUsers] = useState([]);
   const [filterUsers, setFilterUsers] = useState([])
-  const [usModelOpen, setIsModelOpen] = useState(false)
+  const [isModelOpen, setIsModelOpen] = useState(false)
   const [userData, setUserData] = useState({name:"", age:"", city:""})
 
   const getAllUsers = async () => {
@@ -43,6 +43,37 @@ const handleAddRecord = () => {
   setIsModelOpen(true);
 }
 
+//model close
+
+const handleClose = () => {
+  setIsModelOpen(false)
+  getAllUsers()
+}
+
+const handleData = (e) => {
+  setUserData({...userData, [e.target.name]: e.target.value})
+}
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (userData.id) {
+    await axios.patch(`http://localhost:8000/users/${userData.id}`, userData);
+  } else {
+    await axios.post("http://localhost:8000/users", userData);
+  }
+
+  handleClose();
+  setUserData({ name: "", age: "", city: "" });
+};
+
+
+// update user function
+const handleUpdateRecord = (user) => {
+  setUserData(user)
+  setIsModelOpen(true)
+}
+
 
   return (
     <>
@@ -72,7 +103,7 @@ const handleAddRecord = () => {
               <td>{user.age}</td>
               <td>{user.city}</td>
               <td>
-                <button className='btn green'>Edit</button>
+                <button className='btn green' onClick={() => handleUpdateRecord(user)}>Edit</button>
               </td>
               <td>
                 <button className='btn red'onClick={() => handleDelete(user.id)}>Delete</button>
@@ -86,7 +117,23 @@ const handleAddRecord = () => {
         {isModelOpen && (
           <div className='model'>
             <div className='model-control'>
+              <span className='close' onClick={handleClose}>&times;</span>
               <h2>User Record</h2>
+              <div className="input-group">
+                <lable htmlFor="name">Full Name</lable>
+                <input type='text' value={userData.name} name='name' id='name' onChange={handleData}/>
+              </div>
+
+              <div className="input-group">
+                <lable htmlFor="age">Age</lable>
+                <input type='number' value={userData.age} name='age' id='age' onChange={handleData}/>
+              </div>
+
+              <div className="input-group">
+                <lable htmlFor="city">City</lable>
+                <input type='text' value={userData.city} name='city' id='city' onChange={handleData}/>
+              </div>
+              <button className='btn green' onClick={handleSubmit}>Add User</button>
             </div>
           </div>
         )}
