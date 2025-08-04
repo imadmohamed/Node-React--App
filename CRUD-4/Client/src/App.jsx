@@ -85,7 +85,7 @@ const handleAddRecord = () => {
         </table>
         {isModelOpen && (
           <div className='model'>
-            <div>
+            <div className='model-control'>
               <h2>User Record</h2>
             </div>
           </div>
