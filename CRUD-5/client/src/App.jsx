@@ -11,7 +11,7 @@ function App() {
   const getAllUsers = async () => {
     await axios.get("http://localhost:8000/users").then((res) =>{
       setUser(res.data)
-      console.log(res.data)
+      setFilterUser(res.data)
     })
   }
 
@@ -26,6 +26,15 @@ function App() {
     const filterdUser = users.filter((user) => 
       user.name.toLowerCase().includes(textSearch) || user.city.toLowerCase().includes(textSearch))
       setFilterUser(filterdUser);
+  }
+
+  //handle delete funciton
+
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:8000/users/${id}`).then((res) => {
+      setUser(res.data)
+      setFilterUser(res.data)
+    })
   }
 
   return (
@@ -60,7 +69,7 @@ function App() {
                   <td>{user.age}</td>
                   <td>{user.city}</td>
                   <td><button className='btn green'>Edit</button></td>
-                  <td><button className='btn red'>Delete</button></td>
+                  <td><button className='btn red'onClick={()=> handleDelete(user.id)}>Delete</button></td>
                 </tr>
                   )
                 })}
