@@ -7,8 +7,8 @@ const app = express()
 const port = 8000
 
 app.use(cors({
-    origin:"http://localhost:5173/",
-    methods:"POST, GET, PATCH, DELETE"
+    origin:"http://localhost:5173",
+    methods:["POST, GET, PATCH, DELETE"]
 }))
 
 

@@ -18,12 +18,21 @@ function App() {
     getAllUsers()
   },[]);
 
+  //search function
+
+  const handleSearch = () => {
+    
+  }
+
   return (
     <>
       <div className='container'>
           <h2>CRUD App using React and nodejs</h2>
           <div className='input-search'>
-            <input type='search'/>
+            <input type='search' 
+            placeholder='Search text here'
+            onChange={handleSearch}
+            />
             <button className='btn green'>Add Record</button>
             </div>
             <table className='table'>
