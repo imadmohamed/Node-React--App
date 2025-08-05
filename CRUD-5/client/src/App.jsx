@@ -6,7 +6,9 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [users, setUser] = useState([])
-  const [filterUser, setFilterUser] = useState([])
+  const [filterUser, setFilterUser] = useState([]);
+  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [userData, setUserData] = useState({name:"", age:"", city:""})
   
   const getAllUsers = async () => {
     await axios.get("http://localhost:8000/users").then((res) =>{
@@ -37,6 +39,12 @@ function App() {
     })
   }
 
+//Add user details
+
+const handleAddRecord = () => {
+  setUserData({name:"", age:"", city:""})
+  setIsModelOpen(open)
+}
   return (
     <>
       <div className='container'>
@@ -46,7 +54,7 @@ function App() {
             placeholder='Search text here'
             onChange={handleSearch}
             />
-            <button className='btn green'>Add Record</button>
+            <button className='btn green' onClick={handleAddRecord}>Add Record</button>
             </div>
             <table className='table'>
               <thead>
