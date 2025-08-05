@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [users, setUser] = useState([])
+  const [filterUser, setFilterUser] = useState([])
   
   const getAllUsers = async () => {
     await axios.get("http://localhost:8000/users").then((res) =>{
@@ -20,8 +21,11 @@ function App() {
 
   //search function
 
-  const handleSearch = () => {
-    
+  const handleSearch = (e) => {
+    const textSearch = e.target.value.toLowerCase();
+    const filterdUser = users.filter((user) => 
+      user.name.toLowerCase().includes(textSearch) || user.city.toLowerCase().includes(textSearch))
+      setFilterUser(filterdUser);
   }
 
   return (
@@ -48,7 +52,7 @@ function App() {
               </thead>
 
               <tbody>
-                {users && users.map((user, index)=> {
+                {filterUser && filterUser.map((user, index)=> {
                   return (
                     <tr key={user.id}>
                   <td>{index + 1}</td>
