@@ -43,7 +43,7 @@ function App() {
 
 const handleAddRecord = () => {
   setUserData({name:"", age:"", city:""})
-  setIsModelOpen(open)
+  setIsModelOpen(true)
 }
   return (
     <>
@@ -83,6 +83,11 @@ const handleAddRecord = () => {
                 })}
               </tbody>
             </table>
+            {isModelOpen && (<div className='model'>
+                <div className='model-content'>
+                  <h3>User Record</h3>
+                </div>
+              </div>)}
           </div>
           
       
