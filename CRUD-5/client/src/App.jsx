@@ -49,6 +49,8 @@ const handleAddRecord = () => {
 //colose model
 const closeModel  =() =>{
   setIsModelOpen(false)
+      getAllUsers()
+
 }
 
 const handleChange = (e) => {
@@ -59,9 +61,25 @@ const handleChange = (e) => {
 
 const handleSubmit = async(e) => {
   e.preventDefault();
-  await axios.post("http://localhost:8000/users",userData).then((res)=>{
+  if(userData.id){
+    await axios.patch(`http://localhost:8000/users/${userData.id}`,userData).then((res)=>{
     console.log(res)
   })
+  }else{
+    await axios.post("http://localhost:8000/users",userData).then((res)=>{
+    console.log(res)
+  })
+  }
+  closeModel();
+  setUserData({name:"", age:"", city:""})
+
+}
+
+//update user function
+
+const handleUpdateRecord = (user) => {
+  setUserData(user)
+  setIsModelOpen(true)
 }
   return (
     <>
@@ -94,7 +112,7 @@ const handleSubmit = async(e) => {
                   <td>{user.name}</td>
                   <td>{user.age}</td>
                   <td>{user.city}</td>
-                  <td><button className='btn green'>Edit</button></td>
+                  <td><button className='btn green' onClick={()=>handleUpdateRecord(user)}>Edit</button></td>
                   <td><button className='btn red'onClick={()=> handleDelete(user.id)}>Delete</button></td>
                 </tr>
                   )
