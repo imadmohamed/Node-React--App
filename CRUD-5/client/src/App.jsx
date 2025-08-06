@@ -45,6 +45,24 @@ const handleAddRecord = () => {
   setUserData({name:"", age:"", city:""})
   setIsModelOpen(true)
 }
+
+//colose model
+const closeModel  =() =>{
+  setIsModelOpen(false)
+}
+
+const handleChange = (e) => {
+  setUserData({...userData, [e.target.name]: e.target.value})
+}
+
+//handle submit function
+
+const handleSubmit = async(e) => {
+  e.preventDefault();
+  await axios.post("http://localhost:8000/users",userData).then((res)=>{
+    console.log(res)
+  })
+}
   return (
     <>
       <div className='container'>
@@ -85,7 +103,25 @@ const handleAddRecord = () => {
             </table>
             {isModelOpen && (<div className='model'>
                 <div className='model-content'>
+                  <span className="close" onClick={closeModel}>
+                    &times;
+                  </span>
                   <h3>User Record</h3>
+                  <div className="input-group">
+                    <lable htmlFor="name">Full Name</lable>
+                    <input type='text' value={userData.name} name='name' id='name'onChange={handleChange}/>
+                  </div>
+
+                  <div className="input-group">
+                    <lable htmlFor="age">Age</lable>
+                    <input type='number' value={userData.age} name='age' id='age' onChange={handleChange}/>
+                  </div>
+
+                  <div className="input-group">
+                    <lable htmlFor="city">City</lable>
+                    <input type='text' value={userData.city} name='city' id='city' onChange={handleChange}/>
+                  </div>
+                  <button className='btn green' onClick={handleSubmit}>Add user</button>
                 </div>
               </div>)}
           </div>

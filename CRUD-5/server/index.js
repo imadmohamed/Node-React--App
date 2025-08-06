@@ -5,6 +5,8 @@ const fs = require("fs");
 
 
 const app = express()
+app.use(express.json());
+
 const port = 8000
 
 app.use(cors({
@@ -27,6 +29,12 @@ app.delete("/users/:id", (req,res)=> {
         return res.json(filterdUsers)
     })
 
+})
+
+//add new user
+
+app.post("/users", (req, res) => {
+    return res.json({data: res.body})
 })
 
 app.listen(port, (err)=> {
